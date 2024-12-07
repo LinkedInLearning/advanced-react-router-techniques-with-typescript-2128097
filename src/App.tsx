@@ -1,27 +1,14 @@
 import React from "react";
-import { Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyles from "./styles/globalStyles";
+import AppRouter from "./routes/AppRouter";
 
-const Home = () => (
-  <div>
-    <h1>Welcome to the Food App!</h1>
-    <nav>
-      <Link to="/">Home</Link>
-    </nav>
-  </div>
-);
-
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
+const App = () => (
+  <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <Routes>
-        <Route path="/" element={<Home />} />
-    </Routes>
+    <AppRouter />
   </ThemeProvider>
-  );
-};
+);
 
 export default App;
