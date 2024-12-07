@@ -1,10 +1,17 @@
 import React from "react";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyles from "./styles/globalStyles";
 
-const Home = () => <h1>Welcome to the Food App!</h1>;
+const Home = () => (
+  <div>
+    <h1>Welcome to the Food App!</h1>
+    <nav>
+      <Link to="/">Home</Link>
+    </nav>
+  </div>
+);
 
 const App = () => {
   return (
