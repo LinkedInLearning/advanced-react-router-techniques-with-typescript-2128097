@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { ProtectedRoute } from "./PrivateRoutes";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
@@ -34,7 +35,7 @@ const AppRouter = () => {
         </Route>
 
         <Route path="dashboard" element={ <Dashboard /> }/>
-        <Route path="profile" element={ <Profile /> } />
+        <Route path="profile" element={ <ProtectedRoute><Profile /></ProtectedRoute> } />
       </Routes>
     </Layout>
   );
