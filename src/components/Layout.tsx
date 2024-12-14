@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 const LayoutWrapper = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <LayoutWrapper>
       <Header />
       <Content>
-        {children}
+        {children || <Outlet />}
       </Content>
       <Footer />
     </LayoutWrapper>

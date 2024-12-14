@@ -4,6 +4,12 @@ import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
+import Menu from "../pages/Menu"
+import Spicy from "../pages/Menu/Spicy"
+import QuickEasy from "../pages/Menu/QuickEasy"
+import FamilyFriendly from "../pages/Menu/FamilyFriendly"
+import Vegan from "../pages/Menu/Vegan"
+import Intercontinental from "../pages/Menu/Intercontinental"
 import "../styles/transitions.css";
 
 const AppRouter = () => {
@@ -13,6 +19,14 @@ const AppRouter = () => {
     <Layout>
     <Routes location={location}>
       <Route path="/" element={<Home />} />
+      <Route path="menu" element={<Menu />}>
+        <Route path="spicy" element={<Spicy />} />
+        <Route path="quick-easy" element={<QuickEasy />} />
+        <Route path="family-friendly" element={<FamilyFriendly />} />
+        <Route path="vegan" element={<Vegan />} />
+        <Route path="intercontinental" element={<Intercontinental />} />
+      </Route>
+
       <Route
         path="dashboard"
         element={
