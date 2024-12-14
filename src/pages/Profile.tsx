@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../state/store";
+import { getUserProfileThunk } from "../state/authSlice";
+import {LoadingSpinner} from "../components/LoadingSpinner";
 
 const Container = styled.div`
   padding: 2rem;
@@ -35,13 +39,26 @@ const Info = styled.p`
 `;
 
 const Profile: React.FC = () => {
-  const user = {
-    id: "12345",
-    name: "John Doe",
-    email: "john.doe@example.com",
-    avatar: "https://www.example.com/avatar.jpg",
-  };
+  const dispatch = useDispatch<AppDispatch>();
+  const { user, loading } = useSelector((state: RootState) => state.auth);
+  const [localLoading, setLocalLoading] = useState(true);
 
+  useEffect(() => {
+    if (!user) {
+      dispatch(getUserProfileThunk());
+    }
+
+    // Add a 1-second delay for local loading
+    const timer = setTimeout(() => {
+      setLocalLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [dispatch, user]);
+
+  if (loading || localLoading) {
+    return <LoadingSpinner size={50} />;
+  }
 
   if (!user) {
     return (
