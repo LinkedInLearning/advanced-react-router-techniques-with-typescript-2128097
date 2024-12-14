@@ -1,29 +1,28 @@
 import React, { lazy, Suspense } from "react";
-import { ErrorBoundary } from "react-error-boundary";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ProtectedRoute } from "./PrivateRoutes";
 import { LoadingSpinner } from "../components/LoadingSpinner";
+import { CustomErrorBoundary } from "../components/CustomErrorBoundary";
 import Layout from "../components/Layout";
-import Menu from "../pages/Menu"
-import Spicy from "../pages/Menu/Spicy"
-import QuickEasy from "../pages/Menu/QuickEasy"
-import FamilyFriendly from "../pages/Menu/FamilyFriendly"
-import Vegan from "../pages/Menu/Vegan"
-import Intercontinental from "../pages/Menu/Intercontinental"
-import RecipeDetail from "../components/RecipeDetail"
 
 const Home = lazy(() => import("../pages/Home"));
 const Login = lazy(() => import("../pages/Login"));
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const Profile = lazy(() => import("../pages/Profile"));
 
-const FallbackUI = () => <h2>Something went wrong. Please try again later.</h2>;
+const Menu = lazy(() => import("../pages/Menu"));
+const QuickEasy = lazy(() => import("../pages/Menu/QuickEasy"));
+const Spicy = lazy(() => import("../pages/Menu/Spicy"));
+const FamilyFriendly = lazy(() => import("../pages/Menu/FamilyFriendly"));
+const Vegan = lazy(() => import("../pages/Menu/Vegan"));
+const Intercontinental = lazy(() => import("../pages/Menu/Intercontinental"));
+const RecipeDetail = lazy(() => import("../components/RecipeDetail"));
 
 const AppRouter = () => {
   const location = useLocation();
 
   return (
-    <ErrorBoundary FallbackComponent={FallbackUI}>
+    <CustomErrorBoundary>
       <Suspense fallback={<LoadingSpinner size={60} color="#FF6347" speed={2} />}>
         <Layout>
           <Routes location={location}>
@@ -46,7 +45,7 @@ const AppRouter = () => {
           </Routes>
         </Layout>
       </Suspense>
-    </ErrorBoundary>
+    </CustomErrorBoundary>
   );
 };
 

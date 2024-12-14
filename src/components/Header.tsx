@@ -104,11 +104,11 @@ const Header: React.FC = () => {
         <DropdownMenu>
           <NavLink to="/menu">Menu</NavLink>
           <DropdownContent>
-            <DropdownItem to="quick-easy">Quick & Easy</DropdownItem>
-            <DropdownItem to="spicy">Spicy</DropdownItem>
-            <DropdownItem to="family-friendly">Family Friendly</DropdownItem>
-            <DropdownItem to="vegan">Vegan</DropdownItem>
-            <DropdownItem to="intercontinental">Intercontinental</DropdownItem>
+            <DropdownItem to="menu/quick-easy">Quick & Easy</DropdownItem>
+            <DropdownItem to="menu/spicy">Spicy</DropdownItem>
+            <DropdownItem to="menu/family-friendly">Family Friendly</DropdownItem>
+            <DropdownItem to="menu/vegan">Vegan</DropdownItem>
+            <DropdownItem to="menu/intercontinental">Intercontinental</DropdownItem>
           </DropdownContent>
         </DropdownMenu>
 
