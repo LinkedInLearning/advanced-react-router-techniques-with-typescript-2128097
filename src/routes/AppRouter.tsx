@@ -10,6 +10,7 @@ import QuickEasy from "../pages/Menu/QuickEasy"
 import FamilyFriendly from "../pages/Menu/FamilyFriendly"
 import Vegan from "../pages/Menu/Vegan"
 import Intercontinental from "../pages/Menu/Intercontinental"
+import SpicyRecipeDetail from "../pages/Menu/Spicy/SpicyRecipeDetail"
 import "../styles/transitions.css";
 
 const AppRouter = () => {
@@ -20,7 +21,9 @@ const AppRouter = () => {
     <Routes location={location}>
       <Route path="/" element={<Home />} />
       <Route path="menu" element={<Menu />}>
-        <Route path="spicy" element={<Spicy />} />
+        <Route path="spicy" element={<Spicy />}>
+          <Route path=":recipeId" element={<SpicyRecipeDetail />} />
+        </Route>
         <Route path="quick-easy" element={<QuickEasy />} />
         <Route path="family-friendly" element={<FamilyFriendly />} />
         <Route path="vegan" element={<Vegan />} />
