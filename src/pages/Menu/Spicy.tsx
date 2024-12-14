@@ -6,7 +6,11 @@ const Container = styled.div`
   padding: 2rem;
   text-align: center;
   height: calc(100vh - 160px); /* Account for header and footer height */
-  background: ${({ theme }) => theme.colors.background};
+  background: linear-gradient(
+    to bottom,
+    ${({ theme }) => theme.colors.secondary} 0%,
+    ${({ theme }) => theme.colors.background} 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +30,7 @@ const Description = styled.p`
   line-height: 1.5;
 `;
 
-const Vegan: React.FC = () => {
+const Spicy: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -38,20 +42,20 @@ const Vegan: React.FC = () => {
   }, []);
 
   return (
-      <Container>
-        {loading ? (
-          <LoadingSpinner size={50} />
-        ) : (
-          <>
-           <Title>Vegan Recipes</Title>
-            <Description>
-              Explore a world of plant-based recipes that are nutritious, delicious,
-              and cruelty-free. Perfect for vegans and everyone alike.
-            </Description>
-          </>
-        )}
-      </Container>
+    <Container>
+      {loading ? (
+        <LoadingSpinner size={50} />
+      ) : (
+        <>
+          <Title>Spicy Recipes</Title>
+          <Description>
+            Turn up the heat in your kitchen! Explore bold and fiery recipes
+            perfect for those who love a little spice in their life.
+          </Description>
+        </>
+      )}
+    </Container>
   );
 };
 
-export default Vegan;
+export default Spicy;
