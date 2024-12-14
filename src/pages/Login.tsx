@@ -64,7 +64,7 @@ const Login: React.FC = () => {
 
     try {
       await dispatch(loginUserThunk({ email, password })).unwrap();
-      navigate("/profile");
+      navigate("/dashboard");
     } catch (err) {
       setError("Login failed. Please try again.");
     }

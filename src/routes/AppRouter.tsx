@@ -34,7 +34,7 @@ const AppRouter = () => {
           <Route path="intercontinental" element={<Intercontinental />} />
         </Route>
 
-        <Route path="dashboard" element={ <Dashboard /> }/>
+        <Route path="dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute> }/>
         <Route path="profile" element={ <ProtectedRoute><Profile /></ProtectedRoute> } />
       </Routes>
     </Layout>
