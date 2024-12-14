@@ -10,7 +10,7 @@ import QuickEasy from "../pages/Menu/QuickEasy"
 import FamilyFriendly from "../pages/Menu/FamilyFriendly"
 import Vegan from "../pages/Menu/Vegan"
 import Intercontinental from "../pages/Menu/Intercontinental"
-import SpicyRecipeDetail from "../pages/Menu/Spicy/SpicyRecipeDetail"
+import RecipeDetail from "../components/RecipeDetail"
 
 const AppRouter = () => {
   const location = useLocation();
@@ -21,7 +21,7 @@ const AppRouter = () => {
       <Route path="/" element={<Home />} />
       <Route path="menu" element={<Menu />}>
         <Route path="spicy" element={<Spicy />}>
-          <Route path=":recipeId" element={<SpicyRecipeDetail />} />
+          <Route path=":recipeId" element={<RecipeDetail />} />
         </Route>
         <Route path="quick-easy" element={<QuickEasy />} />
         <Route path="family-friendly" element={<FamilyFriendly />} />
