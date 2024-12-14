@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect} from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../state/store";
+import { logoutUserThunk, getUserProfileThunk } from "../state/authSlice";
 
 const HeaderWrapper = styled.header`
   background: ${({ theme }) => theme.colors.secondary};
@@ -63,7 +66,36 @@ const DropdownItem = styled(Link)`
   }
 `;
 
+const LogoutButton = styled.button`
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #c0392b;
+  }
+`;
+
 const Header: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { isAuthenticated, user } = useSelector((state: RootState) => state.auth);
+
+  useEffect(() => {
+    if (isAuthenticated && !user) {
+      dispatch(getUserProfileThunk());
+    }
+  }, [dispatch, isAuthenticated, user]);
+
+  const handleLogout = () => {
+    dispatch(logoutUserThunk()).then(() => {
+      navigate("/login");
+    });
+  };
+
   return (
     <HeaderWrapper>
       <Logo>Advanced React</Logo>
@@ -80,8 +112,13 @@ const Header: React.FC = () => {
           </DropdownContent>
         </DropdownMenu>
 
-        <NavLink to="/profile">Profile</NavLink>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        {isAuthenticated && <NavLink to="/dashboard">Dashboard</NavLink>}
+        {isAuthenticated && <NavLink to="/profile">Profile</NavLink>}
+        {isAuthenticated && user ? (
+          <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
       </Nav>
     </HeaderWrapper>
   );

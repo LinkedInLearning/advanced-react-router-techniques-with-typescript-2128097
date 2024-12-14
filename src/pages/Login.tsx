@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AppDispatch } from "../state/store";
+import { AppDispatch, RootState } from "../state/store";
 import { loginUserThunk } from "../state/authSlice";
 
 const Container = styled.div`
@@ -45,10 +45,19 @@ const Login: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  // Local state for managing user inputs
+  // Access authentication state
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+
   const [email, setEmail] = useState("eve.holt@reqres.in"); // Pre-filled for testing purposes
   const [password, setPassword] = useState("cityslicka"); // Pre-filled for testing purposes
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Redirect to profile if the user is already authenticated
+    if (isAuthenticated) {
+      navigate("/profile");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
