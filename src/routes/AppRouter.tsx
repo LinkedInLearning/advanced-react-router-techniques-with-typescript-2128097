@@ -23,9 +23,11 @@ const AppRouter = () => {
         <Route path="spicy" element={<Spicy />}>
           <Route path=":recipeId" element={<RecipeDetail />} />
         </Route>
+        <Route path="vegan" element={<Vegan />}>
+          <Route path=":recipeId" element={<RecipeDetail />} />
+        </Route>
         <Route path="quick-easy" element={<QuickEasy />} />
         <Route path="family-friendly" element={<FamilyFriendly />} />
-        <Route path="vegan" element={<Vegan />} />
         <Route path="intercontinental" element={<Intercontinental />} />
       </Route>
 
