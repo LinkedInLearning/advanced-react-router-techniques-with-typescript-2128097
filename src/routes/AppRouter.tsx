@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { ProtectedRoute } from "./PrivateRoutes";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { CustomErrorBoundary } from "../components/CustomErrorBoundary";
@@ -25,24 +26,29 @@ const AppRouter = () => {
     <CustomErrorBoundary>
       <Suspense fallback={<LoadingSpinner size={60} color="#FF6347" speed={2} />}>
         <Layout>
-          <Routes location={location}>
-            <Route path="/" element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="menu" element={<Menu />}>
-              <Route path="spicy" element={<Spicy />}>
-                <Route path=":recipeId" element={<RecipeDetail />} />
+        <TransitionGroup>
+          {/* classNames={location.pathname === '/profile' ? 'slide' : 'fade'} */}
+            <CSSTransition classNames="fade" timeout={300}>
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="login" element={<Login />} />
+              <Route path="menu" element={<Menu />}>
+                <Route path="spicy" element={<Spicy />}>
+                  <Route path=":recipeId" element={<RecipeDetail />} />
+                </Route>
+                <Route path="vegan" element={<Vegan />}>
+                  <Route path=":recipeId" element={<RecipeDetail />} />
+                </Route>
+                <Route path="quick-easy" element={<QuickEasy />} />
+                <Route path="family-friendly" element={<FamilyFriendly />} />
+                <Route path="intercontinental" element={<Intercontinental />} />
               </Route>
-              <Route path="vegan" element={<Vegan />}>
-                <Route path=":recipeId" element={<RecipeDetail />} />
-              </Route>
-              <Route path="quick-easy" element={<QuickEasy />} />
-              <Route path="family-friendly" element={<FamilyFriendly />} />
-              <Route path="intercontinental" element={<Intercontinental />} />
-            </Route>
 
-            <Route path="dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute> }/>
-            <Route path="profile" element={ <ProtectedRoute><Profile /></ProtectedRoute> } />
-          </Routes>
+              <Route path="dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute> }/>
+              <Route path="profile" element={ <ProtectedRoute><Profile /></ProtectedRoute> } />
+            </Routes>
+            </CSSTransition>
+          </TransitionGroup>
         </Layout>
       </Suspense>
     </CustomErrorBoundary>
