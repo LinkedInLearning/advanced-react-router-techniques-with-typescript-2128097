@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../state/store";
 import { loginUserThunk } from "../state/authSlice";
 
@@ -43,7 +42,6 @@ const Button = styled.button`
 
 const Login: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
 
   // Local state for managing user inputs
   const [email, setEmail] = useState("eve.holt@reqres.in"); // Pre-filled for testing purposes
@@ -55,7 +53,6 @@ const Login: React.FC = () => {
 
     try {
       await dispatch(loginUserThunk({ email, password })).unwrap();
-      navigate("/profile");
     } catch (err) {
       setError("Login failed. Please try again.");
     }
