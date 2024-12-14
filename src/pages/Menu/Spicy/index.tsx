@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { LoadingSpinner } from "../../../components/LoadingSpinner";
 
 const Container = styled.div`
   padding: 2rem;
@@ -57,40 +57,26 @@ const RecipeItem = styled.li`
 `;
 
 const Spicy: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <Container>
-      {loading ? (
-        <LoadingSpinner size={50} />
-      ) : (
-        <>
-          <Title>Spicy Recipes</Title>
-          <Description>
-            Turn up the heat with these spicy recipes that will ignite your
-            taste buds. From mild to blazing, find the perfect level of spice!
-          </Description>
-          <RecipeList>
-            <RecipeItem>
-              <Link to="spicy/spicy-jollof">Spicy Jollof</Link>
-            </RecipeItem>
-            <RecipeItem>
-              <Link to="spicy/chicken-pepper-soup">Chicken Pepper Soup</Link>
-            </RecipeItem>
-            <RecipeItem>
-              <Link to="spicy/spicy-curry-sauce">Spicy Curry Sauce</Link>
-            </RecipeItem>
-          </RecipeList>
-        </>
-      )}
+      <Title>Spicy Recipes</Title>
+      <Description>
+        Turn up the heat with these spicy recipes that will ignite your
+        taste buds. From mild to blazing, find the perfect level of spice!
+      </Description>
+      <RecipeList>
+        <RecipeItem>
+          <Link to="spicy-jollof">Spicy Jollof</Link>
+        </RecipeItem>
+        <RecipeItem>
+          <Link to="chicken-pepper-soup">Chicken Pepper Soup</Link>
+        </RecipeItem>
+        <RecipeItem>
+          <Link to="spicy-curry-sauce">Spicy Curry Sauce</Link>
+        </RecipeItem>
+      </RecipeList> 
+      <Outlet />
     </Container>
   );
 };

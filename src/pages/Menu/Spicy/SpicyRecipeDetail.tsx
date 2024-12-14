@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
-// Types
 type Recipe = {
   title: string;
   description: string;
@@ -11,23 +10,7 @@ type RecipeMap = {
   [key: string]: Recipe;
 };
 
-// Sample Data
-const spicyRecipes: RecipeMap = {
-  "spicy-jollof": {
-    title: "Spicy Jollof",
-    description: "A Nigerian classic, featuring flavorful rice cooked with tomatoes, peppers, and spices.",
-  },
-  "chicken-pepper-soup": {
-    title: "Chicken Pepper Soup",
-    description: "A light, spicy soup packed with chicken, chili peppers, and aromatic spices.",
-  },
-  "spicy-curry-sauce": {
-    title: "Spicy Curry Sauce",
-    description: "A rich, fiery curry sauce perfect for pairing with rice or yams.",
-  },
-};
 
-// Styled Components
 const RecipeContainer = styled.div`
   padding: 1rem;
   font-family: Arial, sans-serif;
@@ -51,6 +34,21 @@ const NotFoundMessage = styled.h2`
   text-align: center;
 `;
 
+const spicyRecipes: RecipeMap = {
+  "spicy-jollof": {
+    title: "Spicy Jollof",
+    description: "A Nigerian classic, featuring flavorful rice cooked with tomatoes, peppers, and spices.",
+  },
+  "chicken-pepper-soup": {
+    title: "Chicken Pepper Soup",
+    description: "A light, spicy soup packed with chicken, chili peppers, and aromatic spices.",
+  },
+  "spicy-curry-sauce": {
+    title: "Spicy Curry Sauce",
+    description: "A rich, fiery curry sauce perfect for pairing with rice or yams.",
+  },
+};
+
 const SpicyRecipeDetail: React.FC = () => {
   const { recipeId } = useParams<{ recipeId: string }>();
 
@@ -61,7 +59,6 @@ const SpicyRecipeDetail: React.FC = () => {
     return <NotFoundMessage>Recipe not found</NotFoundMessage>;
   }
 
-  // Render the recipe details
   return (
     <RecipeContainer>
       <Title>{recipe.title}</Title>

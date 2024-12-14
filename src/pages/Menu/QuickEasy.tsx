@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
 
 const Container = styled.div`
   padding: 2rem;
@@ -27,29 +26,14 @@ const Description = styled.p`
 `;
 
 const QuickEasy: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
       <Container>
-        {loading ? (
-          <LoadingSpinner size={50} />
-        ) : (
-          <>
-            <Title>Quick & Easy Recipes</Title>
-            <Description>
-              Discover a curated list of recipes that are simple, fast, and
-              perfect for busy days. Enjoy delicious meals in no time!
-            </Description>
-          </>
-        )}
+        <Title>Quick & Easy Recipes</Title>
+        <Description>
+          Discover a curated list of recipes that are simple, fast, and
+          perfect for busy days. Enjoy delicious meals in no time!
+        </Description> 
       </Container>
   );
 };

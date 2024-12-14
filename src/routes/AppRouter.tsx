@@ -11,7 +11,6 @@ import FamilyFriendly from "../pages/Menu/FamilyFriendly"
 import Vegan from "../pages/Menu/Vegan"
 import Intercontinental from "../pages/Menu/Intercontinental"
 import SpicyRecipeDetail from "../pages/Menu/Spicy/SpicyRecipeDetail"
-import "../styles/transitions.css";
 
 const AppRouter = () => {
   const location = useLocation();
@@ -30,19 +29,19 @@ const AppRouter = () => {
         <Route path="intercontinental" element={<Intercontinental />} />
       </Route>
 
-      <Route
-        path="dashboard"
-        element={
-            <Dashboard />
-        }
-      />
-      <Route
-        path="profile"
-        element={
-            <Profile />
-        }
-      />
-    </Routes>
+        <Route
+          path="dashboard"
+          element={
+              <Dashboard />
+          }
+        />
+        <Route
+          path="profile"
+          element={
+              <Profile />
+          }
+        />
+      </Routes>
     </Layout>
   );
 };
