@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   padding: 2rem;
-  height: calc(100vh - 160px); /* Account for header and footer height */
   background: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 `;
 
 const Title = styled.h1`
@@ -67,13 +67,13 @@ const Spicy: React.FC = () => {
       </Description>
       <RecipeList>
         <RecipeItem>
-          <Link to="spicy-jollof">Spicy Jollof</Link>
+          <Link to="52943">Oxtail with broad beans</Link>
         </RecipeItem>
         <RecipeItem>
-          <Link to="chicken-pepper-soup">Chicken Pepper Soup</Link>
+          <Link to="52941">Red Peas Soup</Link>
         </RecipeItem>
         <RecipeItem>
-          <Link to="spicy-curry-sauce">Spicy Curry Sauce</Link>
+          <Link to="52940">Brown Stew Chicken</Link>
         </RecipeItem>
       </RecipeList> 
       <Outlet />
