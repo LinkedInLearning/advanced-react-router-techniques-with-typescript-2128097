@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
 
 const Container = styled.div`
   padding: 2rem;
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.secondary} 0%,
-    ${({ theme }) => theme.colors.background} 100%
-  );
-  
   height: calc(100vh - 160px); /* Account for header and footer height */
   background: ${({ theme }) => theme.colors.background};
   display: flex;
@@ -33,29 +26,14 @@ const Description = styled.p`
 `;
 
 const FamilyFriendly: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
-      <Container>
-        {loading ? (
-          <LoadingSpinner size={50} />
-        ) : (
-          <>
-           <Title>Family-Friendly Recipes</Title>
-<Description>
-  Delight everyone at the table with these wholesome and enjoyable
-  recipes. Perfect for family dinners and gatherings.
-</Description>
-          </>
-        )}
+      <Container> 
+        <Title>Family-Friendly Recipes</Title>
+        <Description>
+          Delight everyone at the table with these wholesome and enjoyable
+          recipes. Perfect for family dinners and gatherings.
+        </Description> 
       </Container>
   );
 };

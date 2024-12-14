@@ -17,29 +17,29 @@ const AppRouter = () => {
 
   return (
     <Layout>
-    <Routes location={location}>
-      <Route path="/" element={<Home />} />
-      <Route path="menu" element={<Menu />}>
-        <Route path="spicy" element={<Spicy />} />
-        <Route path="quick-easy" element={<QuickEasy />} />
-        <Route path="family-friendly" element={<FamilyFriendly />} />
-        <Route path="vegan" element={<Vegan />} />
-        <Route path="intercontinental" element={<Intercontinental />} />
-      </Route>
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="menu" element={<Menu />}>
+          <Route path="spicy" element={<Spicy />} />
+          <Route path="quick-easy" element={<QuickEasy />} />
+          <Route path="family-friendly" element={<FamilyFriendly />} />
+          <Route path="vegan" element={<Vegan />} />
+          <Route path="intercontinental" element={<Intercontinental />} />
+        </Route>
 
-      <Route
-        path="dashboard"
-        element={
-            <Dashboard />
-        }
-      />
-      <Route
-        path="profile"
-        element={
-            <Profile />
-        }
-      />
-    </Routes>
+        <Route
+          path="dashboard"
+          element={
+              <Dashboard />
+          }
+        />
+        <Route
+          path="profile"
+          element={
+              <Profile />
+          }
+        />
+      </Routes>
     </Layout>
   );
 };

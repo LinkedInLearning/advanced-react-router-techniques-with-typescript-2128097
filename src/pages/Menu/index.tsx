@@ -53,8 +53,8 @@ const Menu: React.FC = () => {
     <MenuWrapper>
       <Title>Explore Our Menu</Title>
       <MenuNav>
-        <MenuButton to="quick-easy">Quick & Easy</MenuButton>
         <MenuButton to="spicy">Spicy</MenuButton>
+        <MenuButton to="quick-easy">Quick & Easy</MenuButton>
         <MenuButton to="family-friendly">Family Friendly</MenuButton>
         <MenuButton to="vegan">Vegan</MenuButton>
         <MenuButton to="intercontinental">Intercontinental</MenuButton>

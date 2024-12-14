@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
 
 const Container = styled.div`
   padding: 2rem;
@@ -27,29 +26,14 @@ const Description = styled.p`
 `;
 
 const Vegan: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
       <Container>
-        {loading ? (
-          <LoadingSpinner size={50} />
-        ) : (
-          <>
-           <Title>Vegan Recipes</Title>
-            <Description>
-              Explore a world of plant-based recipes that are nutritious, delicious,
-              and cruelty-free. Perfect for vegans and everyone alike.
-            </Description>
-          </>
-        )}
+        <Title>Vegan Recipes</Title>
+        <Description>
+          Explore a world of plant-based recipes that are nutritious, delicious,
+          and cruelty-free. Perfect for vegans and everyone alike.
+        </Description>
       </Container>
   );
 };

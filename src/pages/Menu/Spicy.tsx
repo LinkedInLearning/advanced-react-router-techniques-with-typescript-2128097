@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
 
 const Container = styled.div`
   padding: 2rem;
   text-align: center;
   height: calc(100vh - 160px); /* Account for header and footer height */
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.secondary} 0%,
-    ${({ theme }) => theme.colors.background} 100%
-  );
+  background: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,29 +26,14 @@ const Description = styled.p`
 `;
 
 const Spicy: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <Container>
-      {loading ? (
-        <LoadingSpinner size={50} />
-      ) : (
-        <>
-          <Title>Spicy Recipes</Title>
-          <Description>
-            Turn up the heat in your kitchen! Explore bold and fiery recipes
-            perfect for those who love a little spice in their life.
-          </Description>
-        </>
-      )}
+      <Title>Spicy Recipes</Title>
+      <Description>
+        Turn up the heat in your kitchen! Explore bold and fiery recipes
+        perfect for those who love a little spice in their life.
+      </Description>
     </Container>
   );
 };
