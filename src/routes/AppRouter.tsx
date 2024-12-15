@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { ProtectedRoute } from "./PrivateRoutes";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { CustomErrorBoundary } from "../components/CustomErrorBoundary";
+import { RecipeInfo } from "../components/RecipeInfo";
 import Layout from "../components/Layout";
 
 const Home = lazy(() => import("../pages/Home"));
@@ -41,7 +42,9 @@ const AppRouter = () => {
                 </Route>
                 <Route path="quick-easy" element={<QuickEasy />} />
                 <Route path="family-friendly" element={<FamilyFriendly />} />
-                <Route path="intercontinental" element={<Intercontinental />} />
+                <Route path="intercontinental" element={<Intercontinental />} >
+                  <Route path="recipe-info" element={<RecipeInfo />} />
+                </Route>
               </Route>
 
               <Route path="dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute> }/>

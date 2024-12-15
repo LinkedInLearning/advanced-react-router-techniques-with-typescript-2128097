@@ -51,6 +51,8 @@ const Vegan: React.FC = () => {
         if (!data.meals || data.meals.length === 0) {
           throw new Error("No recipes found for this category");
         }
+
+        console.log(">>Spicy Recipes", data.meals)
         setRecipes(data.meals);
       } catch (err: any) {
         setError(err.message);
