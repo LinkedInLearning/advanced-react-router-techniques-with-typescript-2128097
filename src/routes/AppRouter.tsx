@@ -11,21 +11,21 @@ const AppRouter = () => {
 
   return (
     <Layout>
-    <Routes location={location}>
-      <Route path="/" element={<Home />} />
-      <Route
-        path="dashboard"
-        element={
-            <Dashboard />
-        }
-      />
-      <Route
-        path="profile"
-        element={
-            <Profile />
-        }
-      />
-    </Routes>
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="dashboard"
+          element={
+              <Dashboard />
+          }
+        />
+        <Route
+          path="profile"
+          element={
+              <Profile />
+          }
+        />
+      </Routes>
     </Layout>
   );
 };
