@@ -36,6 +36,10 @@ const Dashboard: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, []);
+  
+  useEffect(() => {
+    throw new Error("Simulated Error");
+  }, [])
 
   return (
     <Container>
