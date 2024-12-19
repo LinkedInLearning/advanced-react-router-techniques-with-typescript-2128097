@@ -51,7 +51,7 @@ const Profile: React.FC = () => {
     // Add a 1-second delay for local loading
     const timer = setTimeout(() => {
       setLocalLoading(false);
-    }, 1000);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [dispatch, user]);
