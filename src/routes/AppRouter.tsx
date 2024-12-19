@@ -20,7 +20,10 @@ const AppRouter = () => {
     <Layout>
       <Routes location={location}>
         <Route path="/" element={<Home />} />
+        
         <Route path="login" element={<Login />} />
+        <Route path="profile" element={ <Profile /> } />
+
         <Route path="menu" element={<Menu />}>
           <Route path="spicy" element={<Spicy />}>
             <Route path=":recipeId" element={<RecipeDetail />} />
@@ -34,7 +37,6 @@ const AppRouter = () => {
         </Route>
 
         <Route path="dashboard" element={ <Dashboard /> }/>
-        <Route path="profile" element={ <Profile /> } />
       </Routes>
     </Layout>
   );
