@@ -12,15 +12,15 @@ const AppRouter = () => {
     <Routes location={location}>
       <Route path="/" element={<Home />} />
       <Route
-        path="dashboard"
-        element={
-            <Dashboard />
-        }
-      />
-      <Route
         path="profile"
         element={
             <Profile />
+        }
+      />
+      <Route
+        path="dashboard"
+        element={
+            <Dashboard />
         }
       />
     </Routes> 
