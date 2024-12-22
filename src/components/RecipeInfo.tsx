@@ -70,7 +70,7 @@ export const RecipeInfo: React.FC = () => {
   const navigate = useNavigate();
 
   // Access the state passed via Link
-  const recipe = location.state?.recipe as Recipe;
+  const recipe = (location.state || {}).recipe as Recipe;
 
   // Handle cases where the state is missing
   if (!recipe) {

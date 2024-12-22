@@ -117,7 +117,7 @@ const Intercontinental: React.FC = () => {
         for adventurous food lovers and culinary explorers.
       </Description>
       <StyledRecipeList>
-        {recipes.slice(0, 9).map((recipe) => (
+        {recipes.slice(0, 6).map((recipe) => (
           <RecipeItem key={recipe.idMeal}>
             <Link to='recipe-info' state={{recipe}}>{recipe.strMeal}</Link>
           </RecipeItem>
