@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const Container = styled.div`
   padding: 2rem;
@@ -54,25 +53,32 @@ const RecipeItem = styled.li`
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
 
-  a {
+  button {
     color: ${({ theme }) => theme.colors.primary};
+    background: ${({ theme }) => theme.colors.background};
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold; 
     width: 100%;
+    border: none;
   }
 `;
 
 type Recipe = {
   strMeal: string;
   idMeal: string;
-  strMealThumb: string; // Thumbnail for displaying an image
+  strMealThumb: string;
 };
 
 const Intercontinental: React.FC = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const handleViewInfo = (recipe: Recipe) => {
+    navigate("/menu/intercontinental/recipe-info", { state: { recipe } });
+  };
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -117,9 +123,11 @@ const Intercontinental: React.FC = () => {
         for adventurous food lovers and culinary explorers.
       </Description>
       <StyledRecipeList>
-        {recipes.slice(0, 6).map((recipe) => (
+      {recipes.slice(0, 6).map((recipe) => (
           <RecipeItem key={recipe.idMeal}>
-            <Link to='recipe-info' state={{recipe}}>{recipe.strMeal}</Link>
+            <button onClick={() => handleViewInfo(recipe)}>
+              {recipe.strMeal}
+            </button>
           </RecipeItem>
         ))}
       </StyledRecipeList>
