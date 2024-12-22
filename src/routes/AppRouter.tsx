@@ -6,6 +6,7 @@ import { LoadingSpinner } from "../components/LoadingSpinner";
 import { CustomErrorBoundary } from "../components/CustomErrorBoundary";
 import { RecipeInfo } from "../components/RecipeInfo";
 import Layout from "../components/Layout";
+import NotFound from '../pages/NotFound'
 
 const Home = lazy(() => import("../pages/Home"));
 const Login = lazy(() => import("../pages/Login"));
@@ -49,6 +50,8 @@ const AppRouter = () => {
 
               <Route path="dashboard" element={ <ProtectedRoute><Dashboard /></ProtectedRoute> }/>
               <Route path="profile" element={ <ProtectedRoute><Profile /></ProtectedRoute> } />
+
+              <Route path="*" element={<NotFound />} />
             </Routes>
             </CSSTransition>
           </TransitionGroup>
