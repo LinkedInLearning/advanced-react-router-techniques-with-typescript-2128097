@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -17,21 +17,12 @@ const Title = styled.h1`
 
 const NotFound: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleGoBack = () => {
-    if (location.state?.from) {
-      navigate(location.state.from); // Navigate back to the previous path
-    } else {
-      navigate("/"); // Default to homepage if no previous path
-    }
-  };
 
   return (
     <Container>
       <Title>404 - Page Not Found</Title>
       <p>Oops! The page you’re looking for doesn’t exist.</p>
-      <button onClick={handleGoBack}>Go Back</button>
+      <button onClick={() =>navigate("/")}>Go Back</button>
     </Container>
   );
 };
