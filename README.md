@@ -1,6 +1,12 @@
 # Advanced React Router Techniques with TypeScript
 This is the repository for the LinkedIn Learning course `Advanced React Router Techniques with TypeScript`. The full course is available from [LinkedIn Learning][lil-course-url].
 
+![lil-thumbnail-url]
+
+## Course Description
+
+In this course, Oluchukwu Okpala, a senior SE, guides you through advanced React Router techniques to elevate your navigation skills and build scalable applications. Learn about nested routes, dynamic parameters, programmatic navigation, and seamless error handling. Discover how to implement protected routes for securing parts of your app and manage navigation without full-page reloads. Use React.lazy and React Suspense to optimize performance through lazy loading. Understand the intricacies of client-side routing, and navigate through different route structures efficiently. By the end of this course, you will be able to confidently build user flows, handle dynamic data, and ensure excellent user experiences in your apps.
+
 _See the readme file in the main branch for updated instructions and information._
 ## Instructions
 This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
@@ -20,15 +26,17 @@ To resolve this issue:
     Add changes to git using this command: git add .
 	Commit changes using this command: git commit -m "some message"
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+ ## Instructor
+
+Oluchukwu Okpala
+
+Software Engineer           
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/oluchukwu-okpala?u=104).
 
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
+[lil-course-url]: https://www.linkedin.com/learning/advanced-react-router-techniques-with-typescript
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4D0DAQEfK2eaU2dsNA/learning-public-crop_675_1200/B4DZTcemwHHAAY-/0/1738865798764?e=2147483647&v=beta&t=LX4v76TPy5hsZF3TzRX48eXMryowKGq9xYDVhslKJ9s
 
